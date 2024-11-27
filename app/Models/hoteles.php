@@ -18,9 +18,10 @@ class hoteles extends Model
     protected $fillable = [ 
         "id",
         "nombre",
-        "idRol",
         "numPersonas",
-        "idAcomodacion"    
+        "idAcomodacion",
+        "direccion",
+        "telefono"
     ];
 
 }

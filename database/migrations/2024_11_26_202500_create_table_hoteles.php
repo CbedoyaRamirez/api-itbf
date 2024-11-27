@@ -14,11 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('hoteles', function (Blueprint $table) {
-            $table->id();
+            $table->increments("id");
             $table->string('nombre');
-            $table->string('idRol');
             $table->string('numPersonas');
             $table->string('idAcomodacion');            
+            $table->string('direccion')->nullable();            
+            $table->string('telefono')->nullable();            
+            $table->timestamps();  
         });
     }
 

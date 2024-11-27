@@ -38,13 +38,16 @@ class HotelesController extends Controller
      * @param  \App\Http\Requests\StorehotelesRequest  $request
      * @return \Illuminate\Http\Response
      */
+    public $timestamps = false;
     public function store(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             "nombre" => "required",
-            "idRol" => "required",
             "numPersonas" => "required",
             "idAcomodacion" => "required",
+            "direccion" => "required",
+            "telefono" => "required",
         ]);
 
         if ($validator->fails()) {
@@ -58,9 +61,10 @@ class HotelesController extends Controller
         
         $hoteles = hoteles::create([
             "nombre" => $request->nombre,
-            "idRol" => $request->idRol,
             "numPersonas" => $request->numPersonas,
             "idAcomodacion" => $request->idAcomodacion,
+            "direccion" => $request->direccion,
+            "telefono" => $request->telefono,
         ]);
 
         if($hoteles) {
